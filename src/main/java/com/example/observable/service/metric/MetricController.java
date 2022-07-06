@@ -18,7 +18,6 @@ public class MetricController {
 
     @Inject
     @Metric(name = "endpoint_counter")
-
     private Counter counter;
 
     @Path("timed")
@@ -46,7 +45,8 @@ public class MetricController {
     }
 
     @Gauge(name = "counter_gauge", unit = MetricUnits.NONE)
-    private long getCustomerCount() {
-        return counter.getCount();
+    @Path("gauge")
+    public long getCustomerCount() {
+        return 99999L;
     }
 }
